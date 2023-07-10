@@ -1,7 +1,8 @@
 import Footer from "../../components/Footer";
 import ImageGallery from "../../components/ImageGallery";
 import Navbar from "../../components/Nav";
-import PrevProduk from "../../components/PrevProduk";
+
+import ProductCard from "../../components/ProductCard";
 import HighlightAbout from "../../components/highlightAbout";
 
 const Landing = () => {
@@ -10,7 +11,7 @@ const Landing = () => {
       <Navbar />
       <ImageGallery />
       <HighlightAbout />
-      <PrevProduk />
+      <ProductCard />
       <Footer />
     </>
   );
