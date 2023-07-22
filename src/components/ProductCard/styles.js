@@ -19,7 +19,14 @@ export const productCardContainer = css`
   }
 
   .card--container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 14px;
+    /* align-items: flex-start;
+    overflow-y: hidden;
+    ::-webkit-scrollbar {
+      width: 0; Remove scrollbar space 
+    } */
   }
   .card {
     width: 268px;
@@ -50,13 +57,11 @@ export const productCardContainer = css`
   }
   .testing {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
-  .plus {
-    border: 0;
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background-color: #44911f;
+  .btn {
+    margin: auto;
+    padding: 50px 0 0;
   }
 `;

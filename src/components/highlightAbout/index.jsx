@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { HAContainer } from "./styles";
 import ContentAbout from "/src/assets/content/content-about.png";
+import Button from "../Button";
 
 const HighlightAbout = () => {
   const navigate = useNavigate();
@@ -16,12 +17,12 @@ const HighlightAbout = () => {
           modern dan menarik, dengan desain interior yang estetis dan
           menyediakan layanan yang cepat dan efisien.
         </p>
-        <button
+        {/* <button
           className="button--readmore"
-          onClick={() => navigate("tentang")}
         >
           Baca Selengkapnya
-        </button>
+        </button> */}
+        <Button link="/tentang">Baca Selengkapnya</Button>
       </div>
       <img src={ContentAbout} alt="" />
     </div>

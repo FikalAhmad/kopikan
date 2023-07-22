@@ -1,16 +1,23 @@
 import { css } from "@emotion/css";
 
-export const CardContainer = css`
-  display: flex;
-  width: 352px;
-  height: 246px;
-  padding: 16px;
-  border: 1px solid #d9d9d9;
-  border-radius: 10px;
+export const OrderPageContainer = css`
+  margin: 0 50px;
+  font-family: PoppinsBold;
 
-  /* * {
-    border: 1px solid red;
-  } */
+  .card {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px 50px;
+  }
+
+  .card--container {
+    display: flex;
+    width: 352px;
+    height: 246px;
+    padding: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+  }
 
   .image--card {
     width: 120px;
@@ -51,5 +58,20 @@ export const CardContainer = css`
     height: 45px;
     border-radius: 10px;
     background-color: #44911f;
+  }
+
+  h1 {
+    margin-top: 30px;
+    font-family: PoppinsRegular;
+  }
+  h2 {
+    width: 150px;
+    font-family: PoppinsRegular;
+    margin: 20px 0 10px;
+    color: gray;
+  }
+  span {
+    font-family: PoppinsBold;
+    color: #44911f;
   }
 `;

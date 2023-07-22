@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
-import { productContainer } from "./styles";
+import { useContext, useEffect, useState } from "react";
+import { OrderPageContainer } from "./styles";
 import toRupiah from "@develoka/angka-rupiah-js";
 import plus from "/src/assets/icon/plus-white.png";
 import axios from "axios";
 import Navbar from "../../components/Nav";
+import { AuthContext } from "../../components/myContext/AuthContext";
 
-const Product = () => {
+const OrderPage = () => {
   const [product, setProduct] = useState([]);
   const [cartItems, setCartItems] = useState({});
+  const { name } = useContext(AuthContext);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,9 +34,6 @@ const Product = () => {
   };
 
   const addToCart = (productName, qty, price) => {
-    // const indexItem = cartItems.findIndex(
-    //   (data) => data.productName === productName
-    // ); // memeriksa apakah item name sudah ada atau belum pada cartList
     setCartItems((prevItems) => {
       const quantity = !prevItems[productName]?.qty
         ? 1
@@ -46,27 +45,25 @@ const Product = () => {
           qty: quantity,
           price: price * quantity,
         },
+        // [productName]: {
+        //   productName,
+        //   qty: quantity,
+        //   price: price * quantity,
+        // },
       };
       localStorage.setItem("carts", JSON.stringify(newItem));
       return newItem;
     });
     console.log(cartItems);
-    // if (indexItem > -1) {
-    //   cartItems[indexItem].qty += 1;
-    // setCartItems((prevItems) => [...prevItems, { productName, qty }]);
-    // } else if (cartItems == 0) {
-    //   setCartItems((prevItems) => [...prevItems, { productName, qty }]);
-    // } else {
-    //   setCartItems((prevItems) => [...prevItems, { productName, qty }]);
-    // }
   };
-  // console.log(cartItems);
   return (
     <>
       <Navbar />
-      <div className={productContainer}>
+      <div className={OrderPageContainer}>
         <div>
-          <h1>Semua Produk</h1>
+          <h1>
+            Welcome <span>{name}!</span>
+          </h1>
           <h2 className="h2">Signature</h2>
           <div className="card">
             {product.filter(filterSignature).map((item) => {
@@ -76,6 +73,15 @@ const Product = () => {
                   <div className="testing">
                     <p className="p--title">{item.title}</p>
                     <p className="desc">{item.desc}</p>
+                    <div className="testing2">
+                      <p className="p--price">{toRupiah(item.price)}</p>
+                      <button
+                        className="plus"
+                        onClick={() => addToCart(item.title, 1, item.price)}
+                      >
+                        <img src={plus} alt="" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -83,13 +89,19 @@ const Product = () => {
           </div>
           <h2>Coffee</h2>
           <div className="card">
-            {product.filter(filterCoffee).map((item) => {
+            {product.filter(filterCoffee).map((produk) => {
               return (
-                <div className="card--container" key={item.id}>
-                  <img src={item.image} alt="" className="image--card" />
+                <div className="card--container" key={produk.id}>
+                  <img src={produk.image} alt="" className="image--card" />
                   <div className="testing">
-                    <p className="p--title">{item.title}</p>
-                    <p className="desc">{item.desc}</p>
+                    <p className="p--title">{produk.title}</p>
+                    <p className="desc">{produk.desc}</p>
+                    <div className="testing2">
+                      <p className="p--price">{toRupiah(produk.price)}</p>
+                      <button className="plus">
+                        <img src={plus} alt="" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -97,13 +109,19 @@ const Product = () => {
           </div>
           <h2>Non Coffee</h2>
           <div className="card">
-            {product.filter(filterNonCoffee).map((item) => {
+            {product.filter(filterNonCoffee).map((produk) => {
               return (
-                <div className="card--container" key={item.id}>
-                  <img src={item.image} alt="" className="image--card" />
+                <div className="card--container" key={produk.id}>
+                  <img src={produk.image} alt="" className="image--card" />
                   <div className="testing">
-                    <p className="p--title">{item.title}</p>
-                    <p className="desc">{item.desc}</p>
+                    <p className="p--title">{produk.title}</p>
+                    <p className="desc">{produk.desc}</p>
+                    <div className="testing2">
+                      <p className="p--price">{toRupiah(produk.price)}</p>
+                      <button className="plus">
+                        <img src={plus} alt="" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -115,4 +133,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default OrderPage;

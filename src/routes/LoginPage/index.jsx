@@ -1,25 +1,29 @@
 import { Link, useNavigate } from "react-router-dom";
 import { loginContainer } from "./styles";
 import Logo from "/src/assets/logo/logotype-black.png";
-import { useState } from "react";
-import axios from "axios";
+import { useContext, useState } from "react";
+// import axios from "axios";
+import { AuthContext } from "../../components/myContext/AuthContext";
 
 const LoginPage = () => {
+  const { login } = useContext(AuthContext);
+  const { name } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const LoginUser = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/login", {
-        email,
-        password,
-      });
-      navigate("/testing");
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   await axios.post("http://localhost:5000/login", {
+    //     email,
+    //     password,
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    await login(email, password);
+    navigate("/order");
   };
 
   return (
@@ -58,7 +62,7 @@ const LoginPage = () => {
             <button
               type="submit"
               className="form--submit"
-              onClick={() => alert("Testing")}
+              onClick={() => alert(`Login Berhasil! Welcome ${name}`)}
             >
               Login
             </button>

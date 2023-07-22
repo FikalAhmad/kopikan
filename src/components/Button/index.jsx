@@ -5,7 +5,11 @@ const Button = ({ children, icon, link, fill }) => {
   const navigate = useNavigate();
 
   return (
-    <button className={fillBtn({ fill })} onClick={() => navigate(`${link}`)}>
+    <button
+      type="button"
+      className={fillBtn({ fill })}
+      onClick={() => navigate(`${link}`)}
+    >
       {icon ? <img src={icon} alt="logo" /> : null}
       {children}
     </button>
