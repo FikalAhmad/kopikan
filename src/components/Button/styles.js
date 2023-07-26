@@ -12,5 +12,10 @@ export const fillBtn = ({ fill }) => {
     background-color: ${fill ? "#44911f" : "transparent"};
     color: ${fill ? "white" : "#44911f"};
     min-width: 85px;
+
+    /* Responsive min 320px */
+    @media screen and (min-width: 320px) and (max-width: 400px) {
+      font-size: 12px;
+    }
   `;
 };

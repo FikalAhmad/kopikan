@@ -8,6 +8,7 @@ const globalStyle = injectGlobal`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
   @font-face {
     font-family: PoppinsBold;

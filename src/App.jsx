@@ -10,6 +10,7 @@ import CartPage from "./routes/CartPage";
 import { AuthProvider } from "./components/myContext/AuthContext";
 import PrivateRoute from "./components/myContext/PrivateRoute";
 import OrderPage from "./routes/OrderPage";
+import NotFoundPage from "./routes/NotFoundPage";
 
 const App = () => {
   return (
@@ -27,10 +28,11 @@ const App = () => {
             path="/order"
             element={<PrivateRoute component={OrderPage} />}
           />
+          <Route path="/cart" element={<PrivateRoute component={CartPage} />} />
           <Route path="/produk" element={<Product />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/daftar" element={<RegisterPage />} />
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
     </AuthProvider>

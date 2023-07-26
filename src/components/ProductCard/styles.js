@@ -4,7 +4,7 @@ export const productCardContainer = css`
   display: flex;
   flex-direction: column;
   font-family: PoppinsRegular;
-  margin: 50px 50px;
+  margin: 50px;
 
   .section--container {
     display: flex;
@@ -63,5 +63,53 @@ export const productCardContainer = css`
   .btn {
     margin: auto;
     padding: 50px 0 0;
+  }
+
+  /* RESPONSIVE 576PX */
+  @media screen and (max-width: 576px) {
+    margin: 40px 25px;
+
+    .card--container {
+      border: 1px solid red;
+      display: grid;
+      grid-template-columns: auto;
+    }
+    .card {
+      max-width: 268px;
+      max-height: 400px;
+      padding: 34px;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      margin-right: 50px;
+      overflow-x: scroll;
+    }
+    .card:last-child {
+      margin-right: 0;
+    }
+
+    .image--card {
+      width: 200px;
+      border-radius: 5px;
+    }
+
+    .p--title {
+      font-family: PoppinsSemiBold;
+      font-size: 16px;
+      margin: 10px 0 0;
+    }
+    .p--desc {
+      font-size: 14px;
+      color: #7c7c7c;
+      margin: 10px 0 0;
+    }
+    .testing {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .btn {
+      margin: auto;
+      padding: 50px 0 0;
+    }
   }
 `;

@@ -33,7 +33,7 @@ const OrderPage = () => {
     return product.category === "Non-Coffee";
   };
 
-  const addToCart = (productName, qty, price) => {
+  const addToCart = (image, productName, qty, price) => {
     setCartItems((prevItems) => {
       const quantity = !prevItems[productName]?.qty
         ? 1
@@ -41,6 +41,7 @@ const OrderPage = () => {
       const newItem = {
         ...prevItems,
         [productName]: {
+          image,
           productName,
           qty: quantity,
           price: price * quantity,
@@ -77,7 +78,9 @@ const OrderPage = () => {
                       <p className="p--price">{toRupiah(item.price)}</p>
                       <button
                         className="plus"
-                        onClick={() => addToCart(item.title, 1, item.price)}
+                        onClick={() =>
+                          addToCart(item.image, item.title, 1, item.price)
+                        }
                       >
                         <img src={plus} alt="" />
                       </button>
