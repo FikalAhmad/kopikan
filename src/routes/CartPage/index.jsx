@@ -1,17 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { cartPageContainer } from "./styles";
 import Navbar from "../../components/Nav";
 import { AuthContext } from "../../components/myContext/AuthContext";
 import toRupiah from "@develoka/angka-rupiah-js";
 
 const CartPage = () => {
-  const { authenticated } = useContext(AuthContext);
+  // const { authenticated } = useContext(AuthContext);
   const [opt, setOpt] = useState([]);
-  console.log(typeof opt);
 
   useEffect(() => {
     setOpt(Object.values(JSON.parse(localStorage.getItem("carts") || "{}")));
-  }, [authenticated]);
+  }, []);
 
   const addQty = (id, value) => {
     const option = opt.map((item) => {
@@ -61,6 +60,18 @@ const CartPage = () => {
     );
   };
 
+  const totalBill = useMemo(() => {
+    return opt.reduce(
+      (acc, curr) => {
+        return {
+          qty: acc.qty + curr.qty,
+          price: acc.price + curr.price * curr.qty,
+        };
+      },
+      { qty: 0, price: 0 }
+    );
+  }, [opt]);
+
   return (
     <>
       <Navbar />
@@ -102,7 +113,8 @@ const CartPage = () => {
                 })}
               </tbody>
             </table>
-            <div>Total</div>
+            <div>Total Qty {totalBill.qty}</div>
+            <div>Total Price {totalBill.price}</div>
           </>
         ) : (
           <p>Cart Kosong</p>
