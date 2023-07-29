@@ -68,6 +68,7 @@ const Tentang = () => {
               dampak jejak karbon kami.
             </li>
           </ol>
+          <br />
           <p>
             Dengan visi dan misi ini, kami berharap dapat menciptakan merek
             KOPIKAN yang dikenal luas dan menjadi tempat tujuan bagi para

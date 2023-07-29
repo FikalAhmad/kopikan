@@ -7,6 +7,15 @@ export const HAContainer = css`
   font-family: PoppinsRegular;
   flex-direction: row-reverse;
 
+  .image {
+    min-width: 451px;
+    height: 300px;
+    margin: auto;
+    padding-top: 40px;
+    background-image: url("/src/assets/content/content-about.png");
+    background-repeat: no-repeat;
+    border-radius: 8px;
+  }
   .description {
     padding-right: 50px;
   }
@@ -18,14 +27,10 @@ export const HAContainer = css`
     font-size: 16px;
     text-align: justify;
     margin-bottom: 20px;
-    max-width: 800px;
-  }
-  img {
-    border-radius: 15px;
   }
 
   /* RESPONSIVE 576PX */
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     margin: 0 25px;
     display: flex;
     flex-direction: column;
@@ -42,13 +47,18 @@ export const HAContainer = css`
       text-align: justify;
       margin-bottom: 15px;
     }
-    img {
-      border-radius: 15px;
-    }
     .button--more {
       margin-top: 25px;
       display: flex;
       justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .image {
+      min-width: 380px;
+      background-position: -100px;
+      border-radius: 0;
     }
   }
 `;

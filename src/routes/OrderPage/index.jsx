@@ -46,16 +46,10 @@ const OrderPage = () => {
           qty: quantity,
           price: price * quantity,
         },
-        // [productName]: {
-        //   productName,
-        //   qty: quantity,
-        //   price: price * quantity,
-        // },
       };
       localStorage.setItem("carts", JSON.stringify(newItem));
       return newItem;
     });
-    console.log(cartItems);
   };
   return (
     <>
@@ -71,10 +65,10 @@ const OrderPage = () => {
               return (
                 <div className="card--container" key={item.id}>
                   <img src={item.image} alt="" className="image--card" />
-                  <div className="testing">
+                  <div className="wrap--text">
                     <p className="p--title">{item.title}</p>
                     <p className="desc">{item.desc}</p>
-                    <div className="testing2">
+                    <div className="wrap--btn">
                       <p className="p--price">{toRupiah(item.price)}</p>
                       <button
                         className="plus"
@@ -96,10 +90,10 @@ const OrderPage = () => {
               return (
                 <div className="card--container" key={produk.id}>
                   <img src={produk.image} alt="" className="image--card" />
-                  <div className="testing">
+                  <div className="wrap--text">
                     <p className="p--title">{produk.title}</p>
                     <p className="desc">{produk.desc}</p>
-                    <div className="testing2">
+                    <div className="wrap--btn">
                       <p className="p--price">{toRupiah(produk.price)}</p>
                       <button className="plus">
                         <img src={plus} alt="" />
@@ -116,10 +110,10 @@ const OrderPage = () => {
               return (
                 <div className="card--container" key={produk.id}>
                   <img src={produk.image} alt="" className="image--card" />
-                  <div className="testing">
+                  <div className="wrap--text">
                     <p className="p--title">{produk.title}</p>
                     <p className="desc">{produk.desc}</p>
-                    <div className="testing2">
+                    <div className="wrap--btn">
                       <p className="p--price">{toRupiah(produk.price)}</p>
                       <button className="plus">
                         <img src={plus} alt="" />

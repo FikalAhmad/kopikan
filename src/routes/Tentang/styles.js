@@ -6,22 +6,42 @@ export const tentangContainer = css`
   display: flex;
   flex-direction: column;
   margin: 0 50px;
+  text-align: justify;
   .tentang--image {
-    width: 1266px;
+    min-width: 100%;
     height: 417px;
-    margin: auto;
-    padding-top: 40px;
+    margin: 30px auto 0;
     background-image: url("/src/assets/content/coffee-about.png");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -100px;
     border-radius: 10px;
   }
   .tentang--h1 {
     margin-top: 25px;
   }
   li {
-    margin-left: 25px;
+    list-style-type: lower-alpha;
+    margin-left: 30px;
   }
   hr {
     margin: 50px 0;
+  }
+  h2 {
+    margin: 10px 0;
+  }
+
+  /* Responsive 768px */
+  @media screen and (max-width: 768px) {
+    margin: 0 25px;
+    .tentang--image {
+      background-position: -100px;
+    }
+  }
+  /* Responsive 768px */
+  @media screen and (max-width: 576px) {
+    font-size: 14px;
+    .tentang--h1 {
+    }
   }
 `;

@@ -59,20 +59,16 @@ const LoginPage = () => {
               ></input>
             </label>
             {/* <input type="submit" value="Login" className="form--submit" /> */}
-            <button
-              type="submit"
-              className="form--submit"
-              onClick={() => alert(`Login Berhasil! Welcome ${name}`)}
-            >
+            <button type="submit" className="form--submit">
               Login
             </button>
+            <label className="p--daftar">
+              Belum punya akun?
+              <Link to="/daftar" className="p--link">
+                Daftar disini
+              </Link>
+            </label>
           </form>
-          <p className="p--daftar">
-            Belum punya akun?
-            <Link to="/daftar" className="p--link">
-              Daftar disini
-            </Link>
-          </p>
         </div>
       </div>
     </div>

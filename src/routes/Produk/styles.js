@@ -3,7 +3,6 @@ import { css } from "@emotion/css";
 export const productContainer = css`
   margin: 0 50px;
   font-family: PoppinsRegular;
-
   h1 {
     margin: 30px 0 0;
   }
@@ -11,27 +10,22 @@ export const productContainer = css`
     color: green;
     margin: 30px 0 10px;
   }
-
-  .card--container {
-    max-width: 268px;
-    min-height: 450px;
-    padding: 34px;
-    border: 1px solid #d9d9d9;
-    border-radius: 10px;
-    margin-right: 50px;
-  }
-
   .card {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 60px 15px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 3em 3em;
   }
-
+  .card--container {
+    min-width: 268px;
+    min-height: auto;
+    border: 1px solid #d9d9d9;
+    padding: 34px;
+    border-radius: 10px;
+  }
   .image--card {
-    width: 200px;
+    width: 100%;
     border-radius: 5px;
   }
-
   .p--title {
     font-family: PoppinsSemiBold;
     font-size: 16px;
@@ -46,5 +40,45 @@ export const productContainer = css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  /* Responsive 768px */
+  @media screen and (max-width: 768px) {
+    margin: 0 25px;
+    h1 {
+      margin: 10px 0 0;
+      font-size: 32px;
+    }
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 24px;
+    }
+  }
+
+  /* Responsive 576px */
+  @media screen and (max-width: 576px) {
+    margin: 0 25px;
+    h1 {
+      margin: 10px 0 0;
+      font-size: 32px;
+    }
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 24px;
+    }
+  }
+
+  /* Responsive 400px */
+  @media screen and (max-width: 400px) {
+    margin: 0 25px;
+    h1 {
+      margin: 10px 0 0;
+      font-size: 28px;
+    }
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 20px;
+    }
   }
 `;

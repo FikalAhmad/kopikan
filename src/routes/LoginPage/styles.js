@@ -4,13 +4,14 @@ export const loginContainer = css`
   font-family: PoppinsRegular;
   margin: 0 50px;
   .logo {
-    width: 150px;
-    height: 37px;
+    max-width: 150px;
+    max-height: 37px;
     margin-top: 20px;
   }
   .login--container {
     margin: auto;
-    width: 500px;
+    min-width: 100px;
+    max-width: 600px;
   }
   h1 {
     margin: 80px auto 0;
@@ -22,7 +23,7 @@ export const loginContainer = css`
   .form {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
   }
   .form--label {
     display: flex;
@@ -44,6 +45,7 @@ export const loginContainer = css`
     background-color: #44911f;
     border: none;
     color: white;
+    border-radius: 8px;
     cursor: pointer;
   }
   .p--daftar {
@@ -53,5 +55,41 @@ export const loginContainer = css`
   .p--link {
     font-family: PoppinsSemiBold;
     color: #44911f;
+  }
+
+  /* Responsive 576px */
+  @media screen and (max-width: 576px) {
+    margin: 0 25px;
+    .logo {
+      max-width: 130px;
+      max-height: 37px;
+    }
+    .login--container {
+    }
+    h1 {
+      margin: 50px auto 0;
+    }
+    p {
+      margin: 0 auto 20px;
+    }
+    .p--daftar {
+      margin: 15px auto 0;
+    }
+
+    /* Responsive 320px - 400px */
+    @media screen and (max-width: 400px) {
+      margin: 0 20px;
+      font-size: 12px;
+      .logo {
+        max-width: 100px;
+        max-height: 37px;
+      }
+      h1 {
+        margin: 40px auto 0;
+      }
+      .p--daftar {
+        margin: 15px auto 0;
+      }
+    }
   }
 `;

@@ -8,7 +8,6 @@ const globalStyle = injectGlobal`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
   }
   @font-face {
     font-family: PoppinsBold;
@@ -22,6 +21,11 @@ const globalStyle = injectGlobal`
     font-family: PoppinsRegular;
     src: url(${PoppinsRegular});
   }
-`;
+  @media screen and (min-width: 320px) and (max-width: 576px) {
+    *{
+      overflow-x: hidden;
+    }
+  }
+  `;
 
 export default globalStyle;

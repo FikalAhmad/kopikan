@@ -20,8 +20,8 @@ export const productCardContainer = css`
 
   .card--container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 3em 3em;
     /* align-items: flex-start;
     overflow-y: hidden;
     ::-webkit-scrollbar {
@@ -29,19 +29,15 @@ export const productCardContainer = css`
     } */
   }
   .card {
-    width: 268px;
-    height: 400px;
+    min-width: 268px;
+    height: auto;
     padding: 34px;
     border: 1px solid #d9d9d9;
     border-radius: 10px;
-    margin-right: 50px;
-  }
-  .card:last-child {
-    margin-right: 0;
   }
 
   .image--card {
-    width: 200px;
+    width: 100%;
     border-radius: 5px;
   }
 
@@ -65,51 +61,8 @@ export const productCardContainer = css`
     padding: 50px 0 0;
   }
 
-  /* RESPONSIVE 576PX */
+  /* Responsive 576px */
   @media screen and (max-width: 576px) {
     margin: 40px 25px;
-
-    .card--container {
-      border: 1px solid red;
-      display: grid;
-      grid-template-columns: auto;
-    }
-    .card {
-      max-width: 268px;
-      max-height: 400px;
-      padding: 34px;
-      border: 1px solid #d9d9d9;
-      border-radius: 10px;
-      margin-right: 50px;
-      overflow-x: scroll;
-    }
-    .card:last-child {
-      margin-right: 0;
-    }
-
-    .image--card {
-      width: 200px;
-      border-radius: 5px;
-    }
-
-    .p--title {
-      font-family: PoppinsSemiBold;
-      font-size: 16px;
-      margin: 10px 0 0;
-    }
-    .p--desc {
-      font-size: 14px;
-      color: #7c7c7c;
-      margin: 10px 0 0;
-    }
-    .testing {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .btn {
-      margin: auto;
-      padding: 50px 0 0;
-    }
   }
 `;

@@ -1,10 +1,12 @@
 import { css } from "@emotion/css";
 
 export const navContainer = css`
-  display: flex;
   margin: 20px 50px;
-  justify-content: space-between;
-  align-items: center;
+  .first--wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .list--menu {
     min-width: 300px;
   }
@@ -13,13 +15,11 @@ export const navContainer = css`
     justify-content: space-between;
     align-items: center;
   }
-
   li {
     list-style-type: none;
     font-family: PoppinsSemiBold;
     font-size: 16px;
   }
-
   .item--link {
     text-decoration: none;
     color: black;
@@ -76,9 +76,6 @@ export const navContainer = css`
     border-radius: 50px;
     padding: 3px 6px;
   }
-  .nav--button {
-  }
-
   .button--item {
     width: 100px;
     margin: 20px;
@@ -89,32 +86,34 @@ export const navContainer = css`
     text-decoration: none;
     cursor: pointer;
   }
-
   .burger-icon {
     display: none;
     cursor: pointer;
+    z-index: 99;
   }
-
   .bar {
     width: 25px;
     height: 3px;
     background-color: black;
     margin: 6px 0;
   }
+  .nav--second {
+    display: none;
+  }
 
   /* Responsive 576px */
-  @media screen and (min-width: 320px) and (max-width: 576px) {
+  @media screen and (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     margin: 0;
     padding: 15px 25px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    align-items: stretch;
     .nav--logo {
       display: flex;
       align-items: center;
-      width: 120px;
+      width: 180px;
       height: 37px;
     }
     .logo--image {
@@ -135,27 +134,23 @@ export const navContainer = css`
     .list--menu.active {
       display: flex;
       min-width: 400px;
-      min-height: 740px;
+      min-height: 850px;
+      top: 0;
     }
     .ul--menu {
       min-height: 50vh;
       display: flex;
       flex-direction: column;
     }
-
     .item--link {
       text-decoration: none;
       color: black;
     }
-
     .burger-icon {
       display: block;
     }
-
     .nav--icon {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      gap: 30px;
+      display: none;
     }
     .icon--btn {
       background-color: transparent;
@@ -185,16 +180,42 @@ export const navContainer = css`
     .link-btn {
       display: relative;
     }
+    .nav--second {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
 
-    .button--item {
+  /* Responsive 320px - 400px */
+  @media screen and (max-width: 400px) {
+    .nav--logo {
+      width: 120px;
+    }
+    .logo--image {
       width: 100px;
-      margin: 20px;
-      height: 34px;
-      color: white;
-      font-family: PoppinsSemiBold;
-      font-size: 16px;
-      text-decoration: none;
-      cursor: pointer;
+    }
+    .list--menu {
+      z-index: 1;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      width: 100%;
+      justify-content: center;
+      align-content: space-around;
+    }
+    .list--menu.active {
+      display: flex;
+      min-width: 250px;
+      min-height: 500px;
+    }
+    .ul--menu {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
     }
   }
 `;

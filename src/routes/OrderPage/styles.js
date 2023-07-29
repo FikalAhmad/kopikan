@@ -6,25 +6,22 @@ export const OrderPageContainer = css`
 
   .card {
     display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 50px 50px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3em 3em;
   }
-
   .card--container {
     display: flex;
-    width: 352px;
-    height: 246px;
+    min-width: 352px;
+    min-height: auto;
     padding: 16px;
     border: 1px solid #d9d9d9;
     border-radius: 10px;
   }
-
   .image--card {
     width: 120px;
     height: 120px;
     border-radius: 5px;
   }
-
   .p--title {
     font-family: PoppinsSemiBold;
     font-size: 16px;
@@ -41,25 +38,25 @@ export const OrderPageContainer = css`
     font-size: 16px;
     color: #7c7c7c;
   }
-  .testing {
+  .wrap--text {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding-left: 16px;
+    min-height: auto;
   }
-  .testing2 {
+  .wrap--btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   .plus {
     border: 0;
-    width: 45px;
+    min-width: 45px;
     height: 45px;
     border-radius: 10px;
     background-color: #44911f;
   }
-
   h1 {
     margin-top: 30px;
     font-family: PoppinsRegular;
@@ -73,5 +70,38 @@ export const OrderPageContainer = css`
   span {
     font-family: PoppinsBold;
     color: #44911f;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 0 25px;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+    }
+    .card--container {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .desc {
+      max-width: 300px;
+    }
+    .image--card {
+      min-width: 120px;
+    }
+    .wrap--text {
+      width: 600px;
+    }
+    .p--title {
+      margin: 0px 0;
+    }
+    .plus {
+      margin-left: auto;
+      width: 45px;
+    }
+    h1 {
+      margin-top: 10px;
+    }
   }
 `;

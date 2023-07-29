@@ -5,7 +5,8 @@ import Button from "../Button";
 const HighlightAbout = () => {
   return (
     <div className={HAContainer}>
-      <img src={ContentAbout} alt="" />
+      <div className="image"></div>
+      {/* <img src={ContentAbout} alt="" /> */}
       <div className="description">
         <h1>Tentang Kami</h1>
         <p>

@@ -22,6 +22,7 @@ export const CartCountContainer = css`
     padding: 3px 10px;
     color: white;
     min-width: auto;
+    min-height: 38px;
   }
   .icon {
     min-width: 25px;

@@ -17,66 +17,76 @@ const Navbar = () => {
   };
   return (
     <nav className={navContainer}>
-      <div className="nav--logo">
-        <img src={LogotypeBlack} alt="" className="logo--image" />
-      </div>
-      <div className={`list--menu ${isMenuOpen ? "active" : ""}`}>
-        <ul className="ul--menu">
-          <li>
-            {authenticated ? (
-              <Link to="/dashboard" className="item--link">
-                Beranda
-              </Link>
-            ) : (
-              <Link to="/" className="item--link">
-                Beranda
-              </Link>
-            )}
-          </li>
-          <li>
-            <Link to="/tentang" className="item--link">
-              Tentang
-            </Link>
-          </li>
-          <li>
-            <Link to="/produk" className="item--link">
-              Produk
-            </Link>
-          </li>
-        </ul>
-      </div>
-      {authenticated ? (
-        <div className="nav--icon">
-          <CartCount />
-          {/* <button className="icon--btn icon__btn">
-            <span>{name}</span>
-            <img src={profileIcon} alt="" className="icon" />
-          </button> */}
-          <Dropdown />
-          <Button fill link="/order">
-            Pesan Disini
-          </Button>
+      <div className="first--wrap">
+        <div className="nav--logo">
+          <img src={LogotypeBlack} alt="" className="logo--image" />
         </div>
-      ) : (
-        <div className="nav--button">
-          {/* <Button link="/login" fill>
+        <div className={`list--menu ${isMenuOpen ? "active" : ""}`}>
+          <ul className="ul--menu">
+            <li>
+              {authenticated ? (
+                <Link to="/dashboard" className="item--link">
+                  Beranda
+                </Link>
+              ) : (
+                <Link to="/" className="item--link">
+                  Beranda
+                </Link>
+              )}
+            </li>
+            <li>
+              <Link to="/tentang" className="item--link">
+                Tentang
+              </Link>
+            </li>
+            <li>
+              <Link to="/produk" className="item--link">
+                Produk
+              </Link>
+            </li>
+          </ul>
+        </div>
+        {authenticated ? (
+          <>
+            <div className="nav--icon">
+              <CartCount />
+              <Dropdown />
+              <Button fill link="/order">
+                Pesan Disini
+              </Button>
+            </div>
+          </>
+        ) : (
+          <div className="nav--button">
+            {/* <Button link="/login" fill>
             Login
             </Button>
           <Button link="/daftar">Daftar</Button> */}
 
-          <Button fill link="/order">
-            Pesan Disini
-          </Button>
+            <Button fill link="/order">
+              Pesan Disini
+            </Button>
+          </div>
+        )}
+        <div
+          className={`burger-icon ${isMenuOpen ? "active" : ""}`}
+          onClick={handleMenuClick}
+        >
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
-      )}
-      <div
-        className={`burger-icon ${isMenuOpen ? "active" : ""}`}
-        onClick={handleMenuClick}
-      >
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
       </div>
+      {authenticated ? (
+        <div className="second--wrap">
+          <div className="nav--second">
+            <CartCount />
+            <Button fill link="/order">
+              Pesan Disini
+            </Button>
+          </div>
+        </div>
+      ) : null}
     </nav>
   );
 };

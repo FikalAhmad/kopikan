@@ -33,7 +33,7 @@ const RegisterPage = () => {
         </Link>
       </div>
       <div className="">
-        <div className="login--container">
+        <div className="daftar--container">
           <h1>Daftar</h1>
           <p>Daftarkan akun KOPIKAN kamu disini</p>
           <form onSubmit={postUser} className="form">
@@ -78,13 +78,13 @@ const RegisterPage = () => {
               ></input>
             </label>
             <input type="submit" value="Daftar" className="form--submit" />
+            <label className="p--daftar">
+              Sudah punya akun?
+              <Link to="/login" className="p--link">
+                Login disini
+              </Link>
+            </label>
           </form>
-          <p className="p--daftar">
-            Sudah punya akun?
-            <Link to="/login" className="p--link">
-              Login disini
-            </Link>
-          </p>
         </div>
       </div>
     </div>

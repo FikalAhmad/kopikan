@@ -6,79 +6,109 @@ import toRupiah from "@develoka/angka-rupiah-js";
 
 const CartPage = () => {
   const { authenticated } = useContext(AuthContext);
-  const [opt, setOpt] = useState({});
-  // const [tes, setTes] = useState({});
+  const [opt, setOpt] = useState([]);
+  console.log(typeof opt);
 
   useEffect(() => {
-    setOpt(JSON.parse(localStorage.getItem("carts")));
-    reducer();
+    setOpt(Object.values(JSON.parse(localStorage.getItem("carts") || "{}")));
   }, [authenticated]);
 
-  const reducer = () =>
-    Object.values(opt).map((item) => {
-      const tes = [""];
-      let i = 0;
-      while (i < item.length) {
-        tes += item.qty;
-        i++;
+  const addQty = (id, value) => {
+    const option = opt.map((item) => {
+      if (id === item.productName) {
+        item.qty += value;
       }
-      console.log(tes);
+      return item;
     });
+    setOpt(option);
+    localStorage.setItem(
+      "carts",
+      JSON.stringify(
+        option.reduce((acc, curr) => {
+          return {
+            //spread operator (...)
+            ...acc,
+            [curr.productName]: {
+              ...curr,
+            },
+          };
+        }, {})
+      )
+    );
+  };
+
+  const minQty = (id, value) => {
+    const option = opt.map((item) => {
+      if (id === item.productName) {
+        item.qty -= value;
+      }
+      return item;
+    });
+    setOpt(option);
+    localStorage.setItem(
+      "carts",
+      JSON.stringify(
+        option.reduce((acc, curr) => {
+          return {
+            //spread operator (...)
+            ...acc,
+            [curr.productName]: {
+              ...curr,
+            },
+          };
+        }, {})
+      )
+    );
+  };
+
   return (
-    <div className={cartPageContainer}>
+    <>
       <Navbar />
-      <h1>Cart</h1>
-      {opt !== null ? (
-        // <ul className="item--container">
-        //   {Object.values(opt).map((item, index) => {
-        //     return (
-        //       <li key={index} className="item--li">
-        //         <p>{item.productName}</p>
-        //         <p>{item.qty}</p>
-        //         <p>{item.price}</p>
-        //       </li>
-        //     );
-        //   })}
-        //   <li>Total : </li>
-        // </ul>
-        <>
-          <table className="table">
-            <tbody className="table table--body">
-              {Object.values(opt).map((item, index) => {
-                return (
-                  <tr key={index} className="table table--row">
-                    <td className="table table--data">
-                      <img src={item.image} alt="" className="table__image" />
-                    </td>
-                    <td className="table table--data table__productname">
-                      {item.productName}
-                    </td>
-                    <td className="table table--data">
-                      <button
-                        className="btn"
-                        // onClick={() =>
-                        //   localStorage.setItem("carts", item.qty + 1)
-                        // }
-                      >
-                        +
-                      </button>
-                      <span>{item.qty}</span>
-                      <button className="btn">-</button>
-                    </td>
-                    <td className="table table--data">
-                      {toRupiah(item.price)}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          <div>Total</div>
-        </>
-      ) : (
-        <p>Cart Kosong</p>
-      )}
-    </div>
+      <div className={cartPageContainer}>
+        <h1>Cart</h1>
+        {opt?.length > 0 ? (
+          <>
+            <table className="table">
+              <tbody className="table table--body">
+                {opt.map((item, index) => {
+                  return (
+                    <tr key={index} className="table table--row">
+                      <td className="table table--data">
+                        <img src={item.image} alt="" className="table__image" />
+                      </td>
+                      <td className="table table--data table__productname">
+                        {item.productName}
+                      </td>
+                      <td className="table table--data">
+                        <button
+                          className="btn"
+                          onClick={() => addQty(item.productName, 1)}
+                        >
+                          +
+                        </button>
+                        <span>{item.qty}</span>
+                        <button
+                          className="btn"
+                          onClick={() => minQty(item.productName, 1)}
+                        >
+                          -
+                        </button>
+                      </td>
+                      <td className="table table--data">
+                        {toRupiah(item.price)}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            <div>Total</div>
+          </>
+        ) : (
+          <p>Cart Kosong</p>
+        )}
+      </div>
+    </>
   );
 };
 
