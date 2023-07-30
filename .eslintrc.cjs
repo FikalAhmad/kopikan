@@ -1,5 +1,9 @@
-export default {
-  env: { browser: true, es2020: true },
+const eslintRule = {
+  env: {
+    browser: true,
+    es2020: true,
+    node: true,
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -13,3 +17,5 @@ export default {
     'react-refresh/only-export-components': 'warn',
   },
 };
+
+module.exports = eslintRule;
