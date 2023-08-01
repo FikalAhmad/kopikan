@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { registerContainer } from "./styles";
 import Logo from "/src/assets/logo/logotype-black.png";
+import LeftArrow from "/src/assets/icon/left-arrow.png";
 import { useState } from "react";
 import axios from "axios";
 
@@ -27,10 +28,16 @@ const RegisterPage = () => {
   };
   return (
     <div className={registerContainer}>
-      <div>
-        <Link to="/">
-          <img src={Logo} alt="" className="logo" />
+      <div className="nav--back">
+        <Link to="/" className="link--back">
+          <img src={LeftArrow} alt="" />
+          Back
         </Link>
+        <div>
+          <Link to="/" className="link--back">
+            <img src={Logo} alt="" className="logo" />
+          </Link>
+        </div>
       </div>
       <div className="">
         <div className="daftar--container">

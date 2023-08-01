@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import AuthService from "./AuthService";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
         return Promise.reject(error);
       }
     );
-  }, [authenticated]);
+  }, [authenticated, expire]);
 
   const login = async (email, password) => {
     try {

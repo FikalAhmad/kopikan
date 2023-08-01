@@ -39,4 +39,7 @@ export const CartCountContainer = css`
     border-radius: 50px;
     padding: 3px 6px;
   }
+  @media screen and (max-width: 576px) {
+    display: none;
+  }
 `;

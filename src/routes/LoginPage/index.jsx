@@ -1,35 +1,30 @@
 import { Link, useNavigate } from "react-router-dom";
 import { loginContainer } from "./styles";
 import Logo from "/src/assets/logo/logotype-black.png";
+import LeftArrow from "/src/assets/icon/left-arrow.png";
 import { useContext, useState } from "react";
-// import axios from "axios";
 import { AuthContext } from "../../components/myContext/AuthContext";
 
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
-  const { name } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const LoginUser = async (e) => {
     e.preventDefault();
-    // try {
-    //   await axios.post("http://localhost:5000/login", {
-    //     email,
-    //     password,
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    // }
     await login(email, password);
     navigate("/order");
   };
 
   return (
     <div className={loginContainer}>
-      <div>
-        <Link to="/">
+      <div className="nav--back">
+        <Link to="/" className="link--back">
+          <img src={LeftArrow} alt="" />
+          Back
+        </Link>
+        <Link to="/" className="link--back">
           <img src={Logo} alt="" className="logo" />
         </Link>
       </div>

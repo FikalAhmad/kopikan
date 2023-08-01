@@ -4,17 +4,21 @@ import LogotypeBlack from "/src/assets/logo/logotype-black.png";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../myContext/AuthContext";
-// import profileIcon from "/src/assets/icon/profile-white.png";
-// import cartIcon from "/src/assets/icon/cart-white.png";
 import Dropdown from "../Dropdown";
 import CartCount from "../CartCount";
+import Tabs from "../Tabs";
 
 const Navbar = () => {
   const { authenticated } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <nav className={navContainer}>
       <div className="first--wrap">
@@ -26,45 +30,52 @@ const Navbar = () => {
             <li>
               {authenticated ? (
                 <Link to="/dashboard" className="item--link">
-                  Beranda
+                  Home
                 </Link>
               ) : (
                 <Link to="/" className="item--link">
-                  Beranda
+                  Home
                 </Link>
               )}
             </li>
             <li>
               <Link to="/tentang" className="item--link">
-                Tentang
+                About
               </Link>
             </li>
             <li>
               <Link to="/produk" className="item--link">
-                Produk
+                Product
               </Link>
             </li>
+            {authenticated && (
+              <li className="item--link-new">
+                <Link to="/profile" className="item--link-new">
+                  Profile
+                </Link>
+              </li>
+            )}
+            {authenticated && (
+              <li className="item--link-new">
+                <Link to="/" className="item--link-new" onClick={handleLogout}>
+                  Logout
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
         {authenticated ? (
-          <>
-            <div className="nav--icon">
-              <CartCount />
-              <Dropdown />
-              <Button fill link="/order">
-                Pesan Disini
-              </Button>
-            </div>
-          </>
+          <div className="nav--icon">
+            <CartCount />
+            <Dropdown />
+            <Button fill link="/order">
+              Order Here
+            </Button>
+          </div>
         ) : (
           <div className="nav--button">
-            {/* <Button link="/login" fill>
-            Login
-            </Button>
-          <Button link="/daftar">Daftar</Button> */}
-
             <Button fill link="/order">
-              Pesan Disini
+              Order Here
             </Button>
           </div>
         )}
@@ -79,12 +90,7 @@ const Navbar = () => {
       </div>
       {authenticated ? (
         <div className="second--wrap">
-          <div className="nav--second">
-            <CartCount />
-            <Button fill link="/order">
-              Pesan Disini
-            </Button>
-          </div>
+          <Tabs />
         </div>
       ) : null}
     </nav>

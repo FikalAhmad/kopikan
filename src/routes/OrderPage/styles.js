@@ -102,6 +102,49 @@ export const OrderPageContainer = css`
     }
     h1 {
       margin-top: 10px;
+      font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    margin: 0 25px;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+    }
+    .card--container {
+      display: flex;
+      flex-direction: column;
+      min-width: 268px;
+      min-height: auto;
+      padding: 34px;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+    }
+    .desc {
+      margin-bottom: 10px;
+    }
+    .image--card {
+      min-width: 200px;
+      min-height: 200px;
+    }
+    .wrap--text {
+      width: 200px;
+      justify-content: none;
+      padding: 0;
+    }
+    .p--title {
+      margin: 20px 0 0;
+      height: 40px;
+    }
+    .plus {
+      margin-left: auto;
+      width: 45px;
+    }
+    h1 {
+      margin-top: 10px;
+      font-size: 30px;
     }
   }
 `;

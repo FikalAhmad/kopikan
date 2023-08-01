@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useState } from 'react';
-import { cartPageContainer } from './styles';
-import Navbar from '../../components/Nav';
-import toRupiah from '@develoka/angka-rupiah-js';
+import { useEffect, useMemo, useState } from "react";
+import { cartPageContainer } from "./styles";
+import Navbar from "../../components/Nav";
+import toRupiah from "@develoka/angka-rupiah-js";
+import Button from "../../components/Button";
 
 const CartPage = () => {
   const [opt, setOpt] = useState([]);
 
   useEffect(() => {
-    setOpt(Object.values(JSON.parse(localStorage.getItem('carts') || '{}')));
+    setOpt(Object.values(JSON.parse(localStorage.getItem("carts") || "{}")));
   }, []);
 
   const addQty = (id, value) => {
@@ -19,7 +20,7 @@ const CartPage = () => {
     });
     setOpt(option);
     localStorage.setItem(
-      'carts',
+      "carts",
       JSON.stringify(
         option.reduce((acc, curr) => {
           return {
@@ -33,7 +34,6 @@ const CartPage = () => {
       )
     );
   };
-
   const minQty = (id, value) => {
     const option = opt.map((item) => {
       if (id === item.productName) {
@@ -43,7 +43,7 @@ const CartPage = () => {
     });
     setOpt(option);
     localStorage.setItem(
-      'carts',
+      "carts",
       JSON.stringify(
         option.reduce((acc, curr) => {
           return {
@@ -75,8 +75,9 @@ const CartPage = () => {
       <Navbar />
       <div className={cartPageContainer}>
         <h1>Cart</h1>
+
         {opt?.length > 0 ? (
-          <>
+          <div className="bill">
             <table className="table">
               <tbody className="table table--body">
                 {opt.map((item, index) => {
@@ -91,16 +92,16 @@ const CartPage = () => {
                       <td className="table table--data">
                         <button
                           className="btn"
-                          onClick={() => addQty(item.productName, 1)}
-                        >
-                          +
-                        </button>
-                        <span>{item.qty}</span>
-                        <button
-                          className="btn"
                           onClick={() => minQty(item.productName, 1)}
                         >
                           -
+                        </button>
+                        <span className="qty">{item.qty}</span>
+                        <button
+                          className="btn"
+                          onClick={() => addQty(item.productName, 1)}
+                        >
+                          +
                         </button>
                       </td>
                       <td className="table table--data">
@@ -111,11 +112,21 @@ const CartPage = () => {
                 })}
               </tbody>
             </table>
-            <div>Total Qty {totalBill.qty}</div>
-            <div>Total Price {totalBill.price}</div>
-          </>
+            <div className="total--bill">
+              <div className="item--total-bill">
+                Total Qty :<span className="item--bill">{totalBill.qty}</span>
+              </div>
+              <div className="item--total-bill">
+                Total Price :
+                <span className="item--bill">{toRupiah(totalBill.price)}</span>
+              </div>
+              <div className="bill--btn">
+                <Button fill>Proceed to Checkout</Button>
+              </div>
+            </div>
+          </div>
         ) : (
-          <p>Cart Kosong</p>
+          <p className="cart--empty">Your Cart is Empty :(</p>
         )}
       </div>
     </>

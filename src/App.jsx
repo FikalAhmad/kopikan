@@ -11,6 +11,7 @@ import { AuthProvider } from "./components/myContext/AuthContext";
 import PrivateRoute from "./components/myContext/PrivateRoute";
 import OrderPage from "./routes/OrderPage";
 import NotFoundPage from "./routes/NotFoundPage";
+import Profile from "./routes/Profile";
 
 const App = () => {
   return (
@@ -29,6 +30,10 @@ const App = () => {
             element={<PrivateRoute component={OrderPage} />}
           />
           <Route path="/cart" element={<PrivateRoute component={CartPage} />} />
+          <Route
+            path="/profile"
+            element={<PrivateRoute component={Profile} />}
+          />
           <Route path="/produk" element={<Product />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/daftar" element={<RegisterPage />} />

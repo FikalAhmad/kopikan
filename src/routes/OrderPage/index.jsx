@@ -8,7 +8,7 @@ import { AuthContext } from "../../components/myContext/AuthContext";
 
 const OrderPage = () => {
   const [product, setProduct] = useState([]);
-  const [cartItems, setCartItems] = useState({});
+  const [, setCartItems] = useState({});
   const { name } = useContext(AuthContext);
   useEffect(() => {
     const fetchData = async () => {
@@ -37,14 +37,14 @@ const OrderPage = () => {
     setCartItems((prevItems) => {
       const quantity = !prevItems[productName]?.qty
         ? 1
-        : prevItems[productName].qty + 1;
+        : prevItems[productName].qty + qty;
       const newItem = {
         ...prevItems,
         [productName]: {
           image,
           productName,
           qty: quantity,
-          price: price * quantity,
+          price,
         },
       };
       localStorage.setItem("carts", JSON.stringify(newItem));

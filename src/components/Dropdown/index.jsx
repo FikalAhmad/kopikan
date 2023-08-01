@@ -1,17 +1,13 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import profileIcon from "/src/assets/icon/profile-white.png";
 import { dropdownContainer } from "./styles";
 import { AuthContext } from "../myContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useContext(AuthContext);
-
-  // const options = [
-  //   { label: "Profile", action: LogoutUser },
-  //   { label: "Settings" },
-  //   { label: "Logout" },
-  // ];
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -19,9 +15,7 @@ const Dropdown = () => {
 
   const handleProfile = () => {
     setIsOpen(false);
-  };
-  const handleSettings = () => {
-    setIsOpen(false);
+    navigate("/profile");
   };
   const handleLogout = async () => {
     await logout();
@@ -37,9 +31,6 @@ const Dropdown = () => {
         <div className="dropdown-menu">
           <button className="btn-item" onClick={() => handleProfile()}>
             Profile
-          </button>
-          <button className="btn-item" onClick={() => handleSettings()}>
-            Settings
           </button>
           <button className="btn-item" onClick={() => handleLogout()}>
             Logout

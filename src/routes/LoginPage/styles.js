@@ -2,11 +2,20 @@ import { css } from "@emotion/css";
 
 export const loginContainer = css`
   font-family: PoppinsRegular;
-  margin: 0 50px;
+  margin: 20px 50px 0;
+  .nav--back {
+    display: flex;
+    justify-content: space-between;
+  }
+  .link--back {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+  }
   .logo {
     max-width: 150px;
-    max-height: 37px;
-    margin-top: 20px;
+    max-height: auto;
   }
   .login--container {
     margin: auto;
@@ -53,18 +62,27 @@ export const loginContainer = css`
     margin-top: 10px;
   }
   .p--link {
+    margin-left: 5px;
     font-family: PoppinsSemiBold;
     color: #44911f;
   }
 
   /* Responsive 576px */
   @media screen and (max-width: 576px) {
-    margin: 0 25px;
+    margin: 20px 25px 0;
+    .nav--back {
+      display: flex;
+      justify-content: space-between;
+    }
+    .link--back {
+      text-decoration: none;
+      color: black;
+      display: flex;
+      align-items: center;
+    }
     .logo {
       max-width: 130px;
-      max-height: 37px;
-    }
-    .login--container {
+      max-height: 25px;
     }
     h1 {
       margin: 50px auto 0;
@@ -78,17 +96,14 @@ export const loginContainer = css`
 
     /* Responsive 320px - 400px */
     @media screen and (max-width: 400px) {
-      margin: 0 20px;
+      margin: 20px 20px 0;
       font-size: 12px;
       .logo {
-        max-width: 100px;
-        max-height: 37px;
+        max-width: 130px;
+        max-height: 25px;
       }
       h1 {
         margin: 40px auto 0;
-      }
-      .p--daftar {
-        margin: 15px auto 0;
       }
     }
   }

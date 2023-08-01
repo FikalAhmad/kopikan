@@ -22,11 +22,6 @@ export const productCardContainer = css`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 3em 3em;
-    /* align-items: flex-start;
-    overflow-y: hidden;
-    ::-webkit-scrollbar {
-      width: 0; Remove scrollbar space 
-    } */
   }
   .card {
     min-width: 268px;

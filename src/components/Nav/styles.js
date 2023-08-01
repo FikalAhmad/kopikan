@@ -8,7 +8,8 @@ export const navContainer = css`
     align-items: center;
   }
   .list--menu {
-    min-width: 300px;
+    min-width: 250px;
+    width: 300px;
   }
   .ul--menu {
     display: flex;
@@ -23,21 +24,27 @@ export const navContainer = css`
   .item--link {
     text-decoration: none;
     color: black;
+    &-new {
+      display: none;
+    }
   }
-
   .nav--logo {
     align-items: center;
     width: 150px;
   }
-
   .logo--image {
     width: 150px;
     height: auto;
   }
+  .wrap--nav {
+    display: flex;
+    justify-content: space-between;
+  }
   .nav--icon {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 30px;
+    align-items: center;
+    min-width: 250px;
+    justify-content: space-between;
+    display: flex;
   }
   .icon--btn {
     background-color: transparent;
@@ -101,6 +108,14 @@ export const navContainer = css`
     display: none;
   }
 
+  @media screen and (max-width: 768px) {
+    margin: 20px 25px;
+    .list--menu {
+      min-width: 250px;
+      width: 0;
+    }
+  }
+
   /* Responsive 576px */
   @media screen and (max-width: 576px) {
     display: flex;
@@ -134,7 +149,7 @@ export const navContainer = css`
     .list--menu.active {
       display: flex;
       min-width: 400px;
-      min-height: 850px;
+      min-height: 100vh;
       top: 0;
     }
     .ul--menu {
@@ -145,6 +160,11 @@ export const navContainer = css`
     .item--link {
       text-decoration: none;
       color: black;
+      &-new {
+        text-decoration: none;
+        color: #44911f;
+        display: block;
+      }
     }
     .burger-icon {
       display: block;
@@ -183,7 +203,7 @@ export const navContainer = css`
     .nav--second {
       margin-top: 15px;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
     }
   }
 
@@ -210,7 +230,7 @@ export const navContainer = css`
     .list--menu.active {
       display: flex;
       min-width: 250px;
-      min-height: 500px;
+      min-height: 100vh;
     }
     .ul--menu {
       min-height: 50vh;

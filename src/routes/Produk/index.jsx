@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { productContainer } from "./styles";
-import toRupiah from "@develoka/angka-rupiah-js";
-import plus from "/src/assets/icon/plus-white.png";
 import axios from "axios";
 import Navbar from "../../components/Nav";
 
 const Product = () => {
   const [product, setProduct] = useState([]);
-  const [cartItems, setCartItems] = useState({});
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,36 +28,6 @@ const Product = () => {
     return product.category === "Non-Coffee";
   };
 
-  const addToCart = (productName, qty, price) => {
-    // const indexItem = cartItems.findIndex(
-    //   (data) => data.productName === productName
-    // ); // memeriksa apakah item name sudah ada atau belum pada cartList
-    setCartItems((prevItems) => {
-      const quantity = !prevItems[productName]?.qty
-        ? 1
-        : prevItems[productName].qty + 1;
-      const newItem = {
-        ...prevItems,
-        [productName]: {
-          productName,
-          qty: quantity,
-          price: price * quantity,
-        },
-      };
-      localStorage.setItem("carts", JSON.stringify(newItem));
-      return newItem;
-    });
-    console.log(cartItems);
-    // if (indexItem > -1) {
-    //   cartItems[indexItem].qty += 1;
-    // setCartItems((prevItems) => [...prevItems, { productName, qty }]);
-    // } else if (cartItems == 0) {
-    //   setCartItems((prevItems) => [...prevItems, { productName, qty }]);
-    // } else {
-    //   setCartItems((prevItems) => [...prevItems, { productName, qty }]);
-    // }
-  };
-  // console.log(cartItems);
   return (
     <>
       <Navbar />
