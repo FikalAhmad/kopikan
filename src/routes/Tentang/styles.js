@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 
 export const tentangContainer = css`
   font-family: PoppinsRegular;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   margin: 0 50px;
@@ -21,13 +21,15 @@ export const tentangContainer = css`
     margin-top: 25px;
   }
   li {
-    list-style-type: lower-alpha;
+    list-style-type: lower;
     margin-left: 30px;
   }
   hr {
     margin: 50px 0;
   }
   h2 {
+    display: flex;
+    justify-content: center;
     margin: 10px 0;
   }
 

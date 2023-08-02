@@ -1,7 +1,13 @@
 import { css } from "@emotion/css";
 
 export const navContainer = css`
-  margin: 20px 50px;
+  padding: 20px 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: white;
   .first--wrap {
     display: flex;
     justify-content: space-between;
@@ -109,7 +115,7 @@ export const navContainer = css`
   }
 
   @media screen and (max-width: 768px) {
-    margin: 20px 25px;
+    padding: 20px 25px;
     .list--menu {
       min-width: 250px;
       width: 0;
@@ -119,9 +125,9 @@ export const navContainer = css`
   /* Responsive 576px */
   @media screen and (max-width: 576px) {
     display: flex;
+    position: fixed;
     flex-direction: column;
     background-color: white;
-    margin: 0;
     padding: 15px 25px;
     display: flex;
     align-items: stretch;
@@ -141,12 +147,14 @@ export const navContainer = css`
       position: absolute;
       top: 70px;
       left: 0;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: white;
       width: 100%;
       justify-content: center;
       align-content: space-around;
     }
     .list--menu.active {
+      z-index: 20;
+      position: fixed;
       display: flex;
       min-width: 400px;
       min-height: 100vh;
