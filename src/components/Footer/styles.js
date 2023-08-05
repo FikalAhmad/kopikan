@@ -11,6 +11,7 @@ export const footerContainer = css`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
   }
   .footer--logo {
     width: 159px;
@@ -35,16 +36,45 @@ export const footerContainer = css`
   .icon {
     display: flex;
     justify-content: space-between;
-    min-width: 80px;
+    min-width: 150px;
     margin-bottom: 15px;
   }
   .link {
-    max-height: 24px;
+    overflow-y: hidden;
+    height: 24px;
   }
 
   /* Responsive 576px */
   @media screen and (max-width: 576px) {
-    padding: 50px 0;
+    padding: 20px 0;
+    .footer--first {
+      margin: 0 25px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .footer--logo {
+      width: 100px;
+    }
+    .footer--description {
+      max-width: 250px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .footer--first {
+      margin: 0 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
     .footer--logo {
       width: 100px;
     }

@@ -11,6 +11,9 @@ export const dropdownContainer = css`
     padding: 3px 10px;
     color: white;
     min-width: auto;
+    &:hover {
+      background-color: hsl(101, 65%, 30%);
+    }
   }
 
   .dropdown-menu {

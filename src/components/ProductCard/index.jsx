@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { productCardContainer } from "./styles";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Button from "../Button";
 
 const ProductCard = () => {
@@ -20,12 +19,7 @@ const ProductCard = () => {
   return (
     <div className={productCardContainer}>
       <div className="section--container">
-        <h1>Produk Kami</h1>
-        {/* <p>
-          <Link to="/produk" className="link">
-            Lihat Semua
-          </Link>
-        </p> */}
+        <h1>Our Products</h1>
       </div>
       <div className="card--container">
         <div className="card">
@@ -65,7 +59,7 @@ const ProductCard = () => {
       </div>
       <div className="btn">
         <Button fill link="/produk" className="btn--more">
-          Lihat Semua
+          View More
         </Button>
       </div>
     </div>

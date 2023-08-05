@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 
 export const OrderPageContainer = css`
-  margin: 0 50px;
+  margin: 100px 50px 0;
   font-family: PoppinsBold;
 
   .card {
@@ -56,6 +56,12 @@ export const OrderPageContainer = css`
     height: 45px;
     border-radius: 10px;
     background-color: #44911f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: hsl(101, 65%, 30%);
+    }
   }
   h1 {
     margin-top: 30px;
@@ -73,7 +79,7 @@ export const OrderPageContainer = css`
   }
 
   @media screen and (max-width: 768px) {
-    margin: 0 25px;
+    margin: 130px 25px 0;
 
     .card {
       display: flex;
@@ -107,7 +113,7 @@ export const OrderPageContainer = css`
   }
 
   @media screen and (max-width: 400px) {
-    margin: 0 25px;
+    margin: 110px 25px 0;
 
     .card {
       display: flex;
@@ -136,7 +142,7 @@ export const OrderPageContainer = css`
     }
     .p--title {
       margin: 20px 0 0;
-      height: 40px;
+      height: auto;
     }
     .plus {
       margin-left: auto;

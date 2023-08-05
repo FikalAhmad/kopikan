@@ -12,6 +12,10 @@ export const fillBtn = ({ fill }) => {
     background-color: ${fill ? "#44911f" : "transparent"};
     color: ${fill ? "white" : "#44911f"};
     min-width: 85px;
+    &:hover {
+      background-color: hsl(101, 65%, 30%);
+      color: white;
+    }
 
     /* Responsive min 320px */
     @media screen and (min-width: 320px) and (max-width: 400px) {

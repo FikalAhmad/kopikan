@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer";
 import Navbar from "../../components/Nav";
 import { tentangContainer } from "./styles";
 
@@ -8,75 +9,73 @@ const Tentang = () => {
       <div className={tentangContainer}>
         <div className="tentang--image"></div>
         <div>
-          <h1 className="tentang--h1">Tentang Kami</h1>
+          <h1 className="tentang--h1">About Kopikan</h1>
           <p>
-            Kopikan adalah sebuah startup kopi yang berfokus pada menyediakan
-            pengalaman kopi unik dan inovatif kepada pelanggan. Mereka
-            menciptakan atmosfer yang nyaman dan ramah bagi para pecinta kopi
-            untuk menikmati berbagai jenis kopi yang berkualitas tinggi. Kopikan
-            memiliki konsep modern dan menarik, dengan desain interior yang
-            estetis dan menyediakan layanan yang cepat dan efisien.
+            Kopikan is a coffee startup that focuses on providing customers with
+            unique and innovative coffee experiences. They create a cozy and
+            friendly atmosphere for coffee lovers to enjoy various types of
+            high-quality coffee. Kopikan has a modern and attractive concept,
+            with aesthetically pleasing interior design and provides fast and
+            efficient service.
           </p>
           <hr />
           <h1>Visi dan Misi KOPIKAN</h1>
-          <h2>Visi</h2>
+          <h2>Our Vision</h2>
           <p>
-            Menjadi perusahaan yang terkemuka dalam industri F&B dengan fokus
-            pada kopi dan kedai kopi, menciptakan pengalaman yang tak terlupakan
-            bagi pelanggan kami. Kami bertujuan untuk menjadi merek yang diakui
-            secara internasional dan dipercaya dalam hal kualitas kopi, layanan
-            pelanggan yang superior, dan atmosfer yang unik di setiap gerai
-            KOPIKAN.
+            Being a leading company in the F&B industry with a focus on coffee
+            and coffee shops, creating memorable experiences for our customers.
+            We aim to be an internationally recognized and trusted brand in
+            terms of coffee quality, superior customer service, and unique
+            atmosphere in every KOPIKAN outlet.
           </p>
-          <h2>Misi</h2>
+          <h2>Our Mission</h2>
           <ol>
             <li>
-              Memberikan kualitas kopi terbaik: Kami berkomitmen untuk
-              menyajikan kopi terbaik dengan menggunakan biji kopi berkualitas
-              tinggi dari sumber yang terpercaya. Kami menjaga standar ketat
-              dalam proses pemanggangan dan pemilihan biji kopi untuk memberikan
-              rasa yang konsisten dan memuaskan bagi pelanggan kami.
+              Delivering the best quality coffee: We are committed to serving
+              the best coffee by using high-quality coffee beans from trusted
+              sources. We maintain strict standards in the roasting process and
+              selection of coffee beans to provide a consistent and satisfying
+              taste for our customers.
             </li>
             <li>
-              Menyajikan menu yang inovatif: Kami terus mengembangkan menu yang
-              inovatif dengan memperkenalkan minuman kopi yang unik dan variasi
-              makanan penemuan terbaru. Kami berusaha untuk memenuhi berbagai
-              preferensi pelanggan kami dan memberikan pengalaman kuliner yang
-              menarik di setiap kunjungan.
+              Serving an innovative menu: We continue to develop innovative
+              menus by introducing unique coffee drinks and new discovery food
+              variations. We strive to cater to the varying preferences of our
+              customers and provide an exciting culinary experience on every
+              visit.
             </li>
             <li>
-              Memberikan pelayanan pelanggan yang superior: Pelanggan adalah
-              aset berharga bagi kami. Kami berkomitmen untuk memberikan
-              pelayanan pelanggan yang ramah, responsif, dan profesional. Kami
-              mengajarkan karyawan kami tentang pentingnya menjaga hubungan yang
-              baik dengan pelanggan, mendengarkan umpan balik mereka, dan
-              memberikan solusi yang memuaskan.
+              Provide superior customer service: Our customers are our most
+              valuable asset. We are committed to providing friendly, responsive
+              and professional customer service. We teach our employees about
+              the importance of maintaining good relationships with customers,
+              listening to their feedback, and providing satisfactory solutions.
             </li>
             <li>
-              Menciptakan atmosfer yang nyaman: Kami mengerti bahwa lingkungan
-              yang nyaman dan santai adalah faktor penting dalam pengalaman
-              pengunjung. Kami merancang kedai-kedai KOPIKAN dengan desain
-              interior yang menarik, suasana yang hangat, dan fasilitas yang
-              memadai untuk membuat pelanggan merasa betah dan kembali lagi.
+              Creating a comfortable atmosphere: We understand that a
+              comfortable and relaxing environment is an important factor in the
+              customer experience. We design KOPIKAN stores with attractive
+              interior designs, warm ambience, and adequate facilities to make
+              customers feel at home and come back for more.
             </li>
             <li>
-              Berkelanjutan dan bertanggung jawab: Kami bertujuan untuk
-              menjalankan bisnis dengan cara yang bertanggung jawab secara
-              sosial dan lingkungan. Kami berkomitmen untuk mendukung praktik
-              bisnis yang berkelanjutan, termasuk mendukung petani kopi lokal,
-              menggunakan bahan-bahan yang ramah lingkungan, dan mengurangi
-              dampak jejak karbon kami.
+              Sustainable and responsible: We aim to conduct business in a
+              socially and environmentally responsible manner. We are committed
+              to supporting sustainable business practices, including supporting
+              local coffee farmers, using environmentally friendly materials,
+              and reducing the impact of our carbon footprint.
             </li>
           </ol>
           <br />
           <p>
-            Dengan visi dan misi ini, kami berharap dapat menciptakan merek
-            KOPIKAN yang dikenal luas dan menjadi tempat tujuan bagi para
-            pecinta kopi, serta memberikan kontribusi positif bagi komunitas
-            lokal dan industri F&B secara keseluruhan.
+            With this vision and mission, we hope to create a widely recognized
+            KOPIKAN brand and become a destination place for coffee lovers, as
+            well as make a positive contribution to the local community and the
+            F&B industry as a whole.
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

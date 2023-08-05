@@ -40,12 +40,12 @@ const AuthProvider = ({ children }) => {
     );
   }, [authenticated, expire]);
 
-  const login = async (email, password) => {
+  const login = async (email, password, onFail) => {
     try {
       await AuthService.login(email, password);
       setAuthenticated(true);
     } catch (error) {
-      console.error(error);
+      onFail(error.response.data.msg);
     }
   };
 

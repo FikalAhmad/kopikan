@@ -11,7 +11,12 @@ export const ImageGalleryContainer = css`
 
   /* RESPONSIVE 576PX */
   @media screen and (max-width: 576px) {
-    margin: 50px 0 0;
+    margin: 70px 0 0;
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (max-width: 400px) {
+    margin: 60px 0 0;
     display: flex;
     justify-content: center;
   }

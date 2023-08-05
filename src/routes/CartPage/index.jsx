@@ -2,10 +2,25 @@ import { useEffect, useMemo, useState } from "react";
 import { cartPageContainer } from "./styles";
 import Navbar from "../../components/Nav";
 import toRupiah from "@develoka/angka-rupiah-js";
-import Button from "../../components/Button";
+import Toaster from "../../components/Toaster";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const [opt, setOpt] = useState([]);
+  const [showToaster, setShowToaster] = useState(false);
+  const navigate = useNavigate();
+
+  const handlePurchaseCompleted = () => {
+    setShowToaster(true);
+    localStorage.removeItem("carts");
+    setTimeout(() => {
+      navigate("/order");
+    }, 2000);
+  };
+
+  const handleCloseToaster = () => {
+    setShowToaster(false);
+  };
 
   useEffect(() => {
     setOpt(Object.values(JSON.parse(localStorage.getItem("carts") || "{}")));
@@ -37,7 +52,8 @@ const CartPage = () => {
   const minQty = (id, value) => {
     const option = opt.map((item) => {
       if (id === item.productName) {
-        item.qty -= value;
+        // item.qty -= value;
+        item.qty <= 0 ? 0 : (item.qty -= value);
       }
       return item;
     });
@@ -121,7 +137,14 @@ const CartPage = () => {
                 <span className="item--bill">{toRupiah(totalBill.price)}</span>
               </div>
               <div className="bill--btn">
-                <Button fill>Proceed to Checkout</Button>
+                <button className="pay-btn" onClick={handlePurchaseCompleted}>
+                  Complete Purchase
+                </button>
+                <Toaster
+                  message="Purchase has completed!"
+                  show={showToaster}
+                  onClose={handleCloseToaster}
+                />
               </div>
             </div>
           </div>

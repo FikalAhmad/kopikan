@@ -23,6 +23,9 @@ export const CartCountContainer = css`
     color: white;
     min-width: auto;
     min-height: 38px;
+    &:hover {
+      background-color: hsl(101, 65%, 30%);
+    }
   }
   .icon {
     min-width: 25px;

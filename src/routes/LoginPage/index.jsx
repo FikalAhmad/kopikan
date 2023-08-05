@@ -2,19 +2,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginContainer } from "./styles";
 import Logo from "/src/assets/logo/logotype-black.png";
 import LeftArrow from "/src/assets/icon/left-arrow.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../components/myContext/AuthContext";
 
 const LoginPage = () => {
-  const { login } = useContext(AuthContext);
+  const { login, authenticated } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const isLogin = () => {
+      authenticated && navigate("/order");
+    };
+    isLogin();
+  }, [authenticated, navigate]);
 
   const LoginUser = async (e) => {
     e.preventDefault();
-    await login(email, password);
-    navigate("/order");
+    await login(email, password, (msg) => {
+      setMessage(msg);
+    });
   };
 
   return (
@@ -31,7 +40,7 @@ const LoginPage = () => {
       <div className="">
         <div className="login--container">
           <h1>Login</h1>
-          <p>Login untuk order Kopikan</p>
+          <p className="p--desc">Login untuk order Kopikan</p>
           <form onSubmit={LoginUser} className="form">
             <label className="form--label">
               Email:
@@ -53,6 +62,7 @@ const LoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </label>
+            <p className="p--message">{message}</p>
             {/* <input type="submit" value="Login" className="form--submit" /> */}
             <button type="submit" className="form--submit">
               Login

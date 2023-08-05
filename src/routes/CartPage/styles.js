@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 
 export const cartPageContainer = css`
   font-family: PoppinsRegular;
-  margin: 0 50px;
+  margin: 100px 50px 0;
   .bill {
     display: flex;
     justify-content: space-between;
@@ -67,9 +67,24 @@ export const cartPageContainer = css`
     justify-content: center;
     color: red;
   }
+  .pay-btn {
+    padding: 5px 12px;
+    margin: 0px;
+    font-family: PoppinsSemiBold;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 3px solid #44911f;
+    background-color: #44911f;
+    color: white;
+    min-width: 85px;
+    &:hover {
+      background-color: hsl(101, 65%, 30%);
+    }
+  }
 
   @media screen and (max-width: 576px) {
-    margin: 0 25px;
+    margin: 130px 25px 0;
     font-size: 12px;
     .bill {
       display: flex;
@@ -114,7 +129,7 @@ export const cartPageContainer = css`
   }
 
   @media screen and (max-width: 400px) {
-    margin: 0 20px;
+    margin: 120px 20px 0;
     font-size: 10px;
     .bill {
       display: flex;

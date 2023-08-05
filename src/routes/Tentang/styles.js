@@ -5,7 +5,7 @@ export const tentangContainer = css`
   font-size: 16px;
   display: flex;
   flex-direction: column;
-  margin: 0 50px;
+  margin: 100px 50px 0;
   text-align: justify;
   .tentang--image {
     min-width: 100%;
@@ -35,7 +35,7 @@ export const tentangContainer = css`
 
   /* Responsive 768px */
   @media screen and (max-width: 768px) {
-    margin: 0 25px;
+    margin: 80px 25px 0;
     .tentang--image {
       background-position: -100px;
     }

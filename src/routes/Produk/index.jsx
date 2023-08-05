@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { productContainer } from "./styles";
 import axios from "axios";
 import Navbar from "../../components/Nav";
+import Footer from "../../components/Footer";
 
 const Product = () => {
   const [product, setProduct] = useState([]);
@@ -78,6 +79,7 @@ const Product = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

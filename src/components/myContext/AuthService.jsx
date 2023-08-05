@@ -14,7 +14,7 @@ const AuthService = {
       localStorage.setItem("token", data.accessToken);
       return true;
     } else {
-      throw new Error("Login failed");
+      throw new Error(response.data.msg);
     }
   },
   logout: async () => {

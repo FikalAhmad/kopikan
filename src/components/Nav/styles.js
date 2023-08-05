@@ -128,7 +128,7 @@ export const navContainer = css`
     position: fixed;
     flex-direction: column;
     background-color: white;
-    padding: 15px 25px;
+    padding: 20px 25px;
     display: flex;
     align-items: stretch;
     .nav--logo {

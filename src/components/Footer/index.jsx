@@ -2,6 +2,7 @@ import { footerContainer } from "./styles";
 import Logo from "/src/assets/logo/logo-cup-white.png";
 import IgLogo from "/src/assets/icon/ig-logo.png";
 import LinkedinLogo from "/src/assets/icon/linkedin-logo.png";
+import MailIcon from "/src/assets/icon/email-icon.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -21,6 +22,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
+        <br />
         <hr />
         <div className="footer--second">
           <div className="icon">
@@ -30,6 +32,13 @@ const Footer = () => {
               target="_blank"
             >
               <img src={IgLogo} alt="" />
+            </Link>
+            <Link
+              to="mailto:fikri282haikal@gmail.com"
+              className="link"
+              target="_blank"
+            >
+              <img src={MailIcon} alt="" />
             </Link>
             <Link
               to="https://www.linkedin.com/in/ahmadfikrihaikal/"

@@ -8,14 +8,14 @@ const Tabs = () => {
         <NavLink
           to="/cart"
           className="tab--item-styles"
-          activeClassname="active"
+          activeclassname="active"
         >
           Cart
         </NavLink>
         <NavLink
           to="/order"
           className="tab--item-styles"
-          activeClassname="active"
+          activeclassname="active"
         >
           Order Here
         </NavLink>

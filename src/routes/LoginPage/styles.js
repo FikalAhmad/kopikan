@@ -25,9 +25,15 @@ export const loginContainer = css`
   h1 {
     margin: 80px auto 0;
   }
-  p {
-    color: gray;
-    margin: 0 auto 30px;
+  .p {
+    &--desc {
+      color: gray;
+      margin: 0 auto 30px;
+    }
+    &--message {
+      color: red;
+      margin: 0 auto;
+    }
   }
   .form {
     display: flex;
