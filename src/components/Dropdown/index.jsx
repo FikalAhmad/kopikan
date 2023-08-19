@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import profileIcon from "/src/assets/icon/profile-white.png";
 import { dropdownContainer } from "./styles";
-import { AuthContext } from "../myContext/AuthContext";
 import { useNavigate } from "react-router-dom";
+import useAppContext from "../myContext/useAppContext";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { logout } = useContext(AuthContext);
+  const { logout } = useAppContext();
   const navigate = useNavigate();
 
   const toggleDropdown = () => {

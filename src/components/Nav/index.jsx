@@ -2,15 +2,14 @@ import { navContainer } from "./styles";
 import Button from "../Button";
 import LogotypeBlack from "/src/assets/logo/logotype-black.png";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
-import { AuthContext } from "../myContext/AuthContext";
+import { useState } from "react";
 import Dropdown from "../Dropdown";
 import CartCount from "../CartCount";
 import Tabs from "../Tabs";
+import useAppContext from "../myContext/useAppContext";
 
 const Navbar = () => {
-  const { authenticated } = useContext(AuthContext);
-  const { logout } = useContext(AuthContext);
+  const { authenticated, logout } = useAppContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);

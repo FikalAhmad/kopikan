@@ -2,11 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginContainer } from "./styles";
 import Logo from "/src/assets/logo/logotype-black.png";
 import LeftArrow from "/src/assets/icon/left-arrow.png";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../components/myContext/AuthContext";
+import { useEffect, useState } from "react";
+import useAppContext from "../../components/myContext/useAppContext";
 
 const LoginPage = () => {
-  const { login, authenticated } = useContext(AuthContext);
+  const { login, authenticated } = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");

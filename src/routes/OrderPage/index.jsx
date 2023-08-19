@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { OrderPageContainer } from "./styles";
 import toRupiah from "@develoka/angka-rupiah-js";
 import plus from "/src/assets/icon/plus-white.png";
 import axios from "axios";
 import Navbar from "../../components/Nav";
-import { AuthContext } from "../../components/myContext/AuthContext";
+import useAppContext from "../../components/myContext/useAppContext";
 
 const OrderPage = () => {
   const [product, setProduct] = useState([]);
   const [, setCartItems] = useState({});
-  const { name } = useContext(AuthContext);
+  const { name } = useAppContext();
   useEffect(() => {
     const fetchData = async () => {
       try {

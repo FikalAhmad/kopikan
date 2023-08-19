@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Navbar from "../../components/Nav";
 import { ProfileContainer } from "./styles";
-import { AuthContext } from "../../components/myContext/AuthContext";
 import { useNavigate } from "react-router-dom";
+import useAppContext from "../../components/myContext/useAppContext";
 
 const Profile = () => {
-  const { idUser, name } = useContext(AuthContext);
+  const { idUser, name } = useAppContext();
   const [newName, setNewName] = useState("");
   const navigate = useNavigate();
 
