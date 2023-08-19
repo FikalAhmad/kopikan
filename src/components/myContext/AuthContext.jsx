@@ -6,31 +6,45 @@ import axios from "axios";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [token, setToken] = useState("");
-  const [name, setName] = useState("");
-  const [expire, setExpire] = useState("");
+  const [user, setUser] = useState({
+    name: "",
+    id: "",
+  });
+  const [auth, setAuth] = useState({
+    token: "",
+    expire: "",
+  });
 
+  const [authenticated, setAuthenticated] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setToken(token);
       const decoded = jwt_decode(token);
-      setName(decoded.name);
-      setExpire(decoded.exp);
+      setUser({
+        name: decoded.name,
+        id: decoded.userId,
+      });
+      setAuth({
+        token: token,
+        expire: decoded.exp,
+      });
     }
     const axiosJWT = axios.create();
     axiosJWT.interceptors.request.use(
       async (config) => {
         const currentDate = new Date();
-        if (expire * 1000 < currentDate.getTime()) {
+        if (auth.expire * 1000 < currentDate.getTime()) {
           const response = await axios.get("http://localhost:5000/token");
-          console.log(response);
           config.headers.Authorization = `Bearer ${response.data.accessToken}`;
-          setToken(response.data.accessToken);
           const decoded = jwt_decode(token);
-          setName(decoded.name);
-          setExpire(decoded.exp);
+          setAuth({
+            token: response.data.accessToken,
+            expire: decoded.exp,
+          });
+          setUser((prevItem) => ({
+            ...prevItem,
+            name: decoded.name,
+          }));
         }
         return config;
       },
@@ -38,7 +52,7 @@ const AuthProvider = ({ children }) => {
         return Promise.reject(error);
       }
     );
-  }, [authenticated, expire]);
+  }, [authenticated, auth.expire]);
 
   const login = async (email, password, onFail) => {
     try {
@@ -53,8 +67,17 @@ const AuthProvider = ({ children }) => {
     AuthService.logout();
     setAuthenticated(false);
   };
+
+  const authContextValue = {
+    authenticated,
+    login,
+    logout,
+    // user doang juga bisa tapi nnti dikomponen lain jadi user.name
+    name: user.name,
+    idUser: user.id,
+  };
   return (
-    <AuthContext.Provider value={{ authenticated, login, logout, name, token }}>
+    <AuthContext.Provider value={authContextValue}>
       {children}
     </AuthContext.Provider>
   );
