@@ -8,7 +8,9 @@ const ProductCard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/products");
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/products`
+        );
         setProduct(response.data);
       } catch (error) {
         console.error(error);

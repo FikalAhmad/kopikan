@@ -13,7 +13,7 @@ const Profile = () => {
   const SaveChanges = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/users/${idUser}`, {
+      await axios.patch(`${import.meta.env.VITE_API_URL}/users/${idUser}`, {
         name: newName,
       });
       navigate("/order");

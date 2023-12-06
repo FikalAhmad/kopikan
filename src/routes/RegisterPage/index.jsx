@@ -15,7 +15,7 @@ const RegisterPage = () => {
   const postUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/users", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/users`, {
         name,
         email,
         password,

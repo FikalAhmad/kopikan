@@ -1,10 +1,8 @@
 import axios from "axios";
-
-// Assuming you have an API endpoint for authentication
-const API_URL = "http://localhost:5000";
+// const API_URL = "http://localhost:5000";
 const AuthService = {
   login: async (email, password) => {
-    const response = await axios.post(`${API_URL}/login`, {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
       email,
       password,
     });
@@ -18,7 +16,7 @@ const AuthService = {
     }
   },
   logout: async () => {
-    await axios.delete(`${API_URL}/logout`);
+    await axios.delete(`${import.meta.env.VITE_API_URL}/logout`);
     localStorage.removeItem("token");
     localStorage.removeItem("carts");
   },

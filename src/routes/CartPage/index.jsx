@@ -10,6 +10,7 @@ const CartPage = () => {
   const [showToaster, setShowToaster] = useState(false);
   const navigate = useNavigate();
 
+  // saat fungsi ini dipanggil dia akan set toasternya jadi true (muncul toasternya) maka akan keluar dengan waktu yg ditentukan set timeoutnya yaitu 2000 danjuga akan menavigate ke /order dan menghapus key carts di local storage
   const handlePurchaseCompleted = () => {
     setShowToaster(true);
     localStorage.removeItem("carts");
@@ -18,15 +19,19 @@ const CartPage = () => {
     }, 2000);
   };
 
+  //saat fungsi ini dipanggil dia akan mengset toaster menjadi false (simbol x ditekan akan hilang langsung toasternya)
   const handleCloseToaster = () => {
     setShowToaster(false);
   };
 
+  // ketika render pertama kali dia akan mengambil item carts di local storage lalu di parse menjadi json object dan juga di object values agar menjadi array kemudian dimasukkan kedalam usestate opt dan jika dia kosong maka akan mengerjakan atau memberikan string obj kosong (kenapa di kodenya pake string? kenapa gapake object kosong langsung? karena dikasus ini kita memparse local storage kita sehingga kita menggunakan string juga dalam obj kosong ini)
   useEffect(() => {
     setOpt(Object.values(JSON.parse(localStorage.getItem("carts") || "{}")));
   }, []);
 
+  // di fungsi addQty ini kita memberikan parameter sehingga mendapatkan data id(berisi ite,.productname) dan value(angka 1 atau lebih).
   const addQty = (id, value) => {
+    // membuat variabel option lalu value dari opt di loop menggunakan .map() dengan menghasilkan array baru bernama item lalu akan dicek jika parameter id tadi sama dengan item.productName
     const option = opt.map((item) => {
       if (id === item.productName) {
         item.qty += value;
