@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import ContentAbout from "/src/assets/content/content-about.png";
 
 export const HAContainer = css`
   display: flex;
@@ -12,7 +13,7 @@ export const HAContainer = css`
     height: 300px;
     margin: auto;
     padding-top: 40px;
-    background-image: url("/src/assets/content/content-about.png");
+    background-image: url(${ContentAbout});
     background-repeat: no-repeat;
     border-radius: 8px;
   }

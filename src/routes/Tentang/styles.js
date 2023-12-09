@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import CoffeeAbout from "/src/assets/content/coffee-about.png";
 
 export const tentangContainer = css`
   font-family: PoppinsRegular;
@@ -11,7 +12,7 @@ export const tentangContainer = css`
     min-width: 100%;
     height: 417px;
     margin: 30px auto 0;
-    background-image: url("/src/assets/content/coffee-about.png");
+    background-image: url(${CoffeeAbout});
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: -100px;
