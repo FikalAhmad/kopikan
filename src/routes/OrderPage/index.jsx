@@ -88,16 +88,21 @@ const OrderPage = () => {
           </div>
           <h2>Coffee</h2>
           <div className="card">
-            {product.filter(filterCoffee).map((produk) => {
+            {product.filter(filterCoffee).map((item) => {
               return (
-                <div className="card--container" key={produk.id}>
-                  <img src={produk.image} alt="" className="image--card" />
+                <div className="card--container" key={item.id}>
+                  <img src={item.image} alt="" className="image--card" />
                   <div className="wrap--text">
-                    <p className="p--title">{produk.title}</p>
-                    <p className="desc">{produk.desc}</p>
+                    <p className="p--title">{item.title}</p>
+                    <p className="desc">{item.desc}</p>
                     <div className="wrap--btn">
-                      <p className="p--price">{toRupiah(produk.price)}</p>
-                      <button className="plus">
+                      <p className="p--price">{toRupiah(item.price)}</p>
+                      <button
+                        className="plus"
+                        onClick={() =>
+                          addToCart(item.image, item.title, 1, item.price)
+                        }
+                      >
                         <img src={plus} alt="" />
                       </button>
                     </div>
@@ -108,16 +113,21 @@ const OrderPage = () => {
           </div>
           <h2>Non Coffee</h2>
           <div className="card">
-            {product.filter(filterNonCoffee).map((produk) => {
+            {product.filter(filterNonCoffee).map((item) => {
               return (
-                <div className="card--container" key={produk.id}>
-                  <img src={produk.image} alt="" className="image--card" />
+                <div className="card--container" key={item.id}>
+                  <img src={item.image} alt="" className="image--card" />
                   <div className="wrap--text">
-                    <p className="p--title">{produk.title}</p>
-                    <p className="desc">{produk.desc}</p>
+                    <p className="p--title">{item.title}</p>
+                    <p className="desc">{item.desc}</p>
                     <div className="wrap--btn">
-                      <p className="p--price">{toRupiah(produk.price)}</p>
-                      <button className="plus">
+                      <p className="p--price">{toRupiah(item.price)}</p>
+                      <button
+                        className="plus"
+                        onClick={() =>
+                          addToCart(item.image, item.title, 1, item.price)
+                        }
+                      >
                         <img src={plus} alt="" />
                       </button>
                     </div>
