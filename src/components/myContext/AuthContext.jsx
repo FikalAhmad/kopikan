@@ -34,7 +34,9 @@ const AuthProvider = ({ children }) => {
       async (config) => {
         const currentDate = new Date();
         if (auth.expire * 1000 < currentDate.getTime()) {
-          const response = await axios.get("http://localhost:5000/token");
+          const response = await axios.get(
+            `${import.meta.env.VITE_API_URL}/token`
+          );
           config.headers.Authorization = `Bearer ${response.data.accessToken}`;
           const decoded = jwt_decode(token);
           setAuth({
