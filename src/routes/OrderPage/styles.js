@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 
 export const OrderPageContainer = css`
-  margin: 100px 50px 0;
+  margin: 100px 50px 50px;
   font-family: PoppinsBold;
 
   .card {
@@ -60,7 +60,10 @@ export const OrderPageContainer = css`
     justify-content: center;
     align-items: center;
     &:hover {
-      background-color: hsl(101, 65%, 30%);
+      background-color: #367619;
+    }
+    &:active {
+      background-color: #265412;
     }
   }
   h1 {

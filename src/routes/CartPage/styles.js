@@ -32,6 +32,14 @@ export const cartPageContainer = css`
     /* padding: 3px 6px; */
     border: none;
     color: #44911f;
+    &:hover {
+      color: white;
+      background-color: #367619;
+    }
+    &:active {
+      color: white;
+      background-color: #265412;
+    }
   }
   .qty {
     font-family: PoppinsSemiBold;
@@ -74,12 +82,15 @@ export const cartPageContainer = css`
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px;
-    border: 3px solid #44911f;
+    border: none;
     background-color: #44911f;
     color: white;
     min-width: 85px;
     &:hover {
-      background-color: hsl(101, 65%, 30%);
+      background-color: #367619;
+    }
+    &:active {
+      background-color: #265412;
     }
   }
 

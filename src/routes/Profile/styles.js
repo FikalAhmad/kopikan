@@ -56,7 +56,12 @@ export const ProfileContainer = css`
     color: white;
     max-width: 250px;
     &:hover {
-      background-color: hsl(101, 65%, 30%);
+      background-color: #367619;
+      border: 3px solid #367619;
+    }
+    &:active {
+      border: 3px solid #265412;
+      background-color: #265412;
     }
     &_stroke {
       padding: 5px 12px;
@@ -71,6 +76,9 @@ export const ProfileContainer = css`
       &:hover {
         background-color: #44911f;
         color: white;
+      }
+      &:active {
+        background-color: #367619;
       }
     }
   }

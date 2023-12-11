@@ -17,14 +17,16 @@ export const CartCountContainer = css`
     display: flex;
     justify-content: space-between;
     background-color: #44911f;
-    border: 2px solid green;
     border-radius: 10px;
     padding: 3px 10px;
     color: white;
     min-width: auto;
     min-height: 38px;
     &:hover {
-      background-color: hsl(101, 65%, 30%);
+      background-color: #367619;
+    }
+    &:active {
+      background-color: #265412;
     }
   }
   .icon {

@@ -62,6 +62,12 @@ export const loginContainer = css`
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    &:hover {
+      background-color: #367619;
+    }
+    &:active {
+      background-color: #265412;
+    }
   }
   .p--daftar {
     text-align: center;
@@ -71,6 +77,12 @@ export const loginContainer = css`
     margin-left: 5px;
     font-family: PoppinsSemiBold;
     color: #44911f;
+    &:hover {
+      color: #367619;
+    }
+    &:active {
+      color: #265412;
+    }
   }
 
   /* Responsive 576px */

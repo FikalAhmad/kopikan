@@ -30,6 +30,9 @@ export const navContainer = css`
   .item--link {
     text-decoration: none;
     color: black;
+    &:hover {
+      color: #44911f;
+    }
     &-new {
       display: none;
     }

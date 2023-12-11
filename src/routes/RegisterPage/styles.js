@@ -56,6 +56,12 @@ export const registerContainer = css`
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    &:hover {
+      background-color: #367619;
+    }
+    &:active {
+      background-color: #265412;
+    }
   }
   .p--daftar {
     text-align: center;
@@ -65,6 +71,12 @@ export const registerContainer = css`
     font-family: PoppinsSemiBold;
     color: #44911f;
     margin-left: 5px;
+    &:hover {
+      color: #367619;
+    }
+    &:active {
+      color: #265412;
+    }
   }
 
   /* Responsive 576px */

@@ -13,8 +13,13 @@ export const fillBtn = ({ fill }) => {
     color: ${fill ? "white" : "#44911f"};
     min-width: 85px;
     &:hover {
-      background-color: hsl(101, 65%, 30%);
+      border: 3px solid #367619;
+      background-color: #367619;
       color: white;
+    }
+    &:active {
+      border: 3px solid #265412;
+      background-color: #265412;
     }
 
     /* Responsive min 320px */
