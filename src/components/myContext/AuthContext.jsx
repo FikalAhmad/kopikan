@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
         return Promise.reject(error);
       }
     );
-  }, [authenticated, auth.expire]);
+  }, [authenticated, auth.expire, auth.name]);
 
   const login = async (email, password, onFail) => {
     try {
